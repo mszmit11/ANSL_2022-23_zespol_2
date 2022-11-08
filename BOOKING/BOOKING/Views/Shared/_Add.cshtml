@@ -1,0 +1,31 @@
+﻿@model BOOKING.Models.Product
+
+<!--html helper-->
+<!--Formularz dodawania pokoi do systemu-->
+@using (Html.BeginForm("Add", "BookingSys", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <p>Nazwa: </p>
+
+    @Html.TextBoxFor(x => x.Name)
+    <p>Opis: </p>
+
+    @Html.TextBoxFor(x => x.Description)
+    <p>Kategoria: </p>
+
+    @Html.TextBoxFor(x => x.Category)
+
+    <p><button type="submit">Wyślij</button></p>
+}
+<style>
+p {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-family: courier;
+  font-size: 120%;
+}
+</style>

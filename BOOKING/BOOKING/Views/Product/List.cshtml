@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BOOKING.Models.Product>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<!--Uzycie c# w widoku html (wyswietlanie listy)-->
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.Category - @product.Name - @product.Id</li>
+    }
+</ul>
+
+<h2>Warunek - tylko pokoje</h2>
+<!--wyswietlanie listy z warunkiem-->
+<ul>
+    @foreach (var product in Model)
+    {
+        if(product.Category == "Pokój")
+        {
+            <li>@product.Category - @product.Name - @product.Id</li>
+        }
+        else
+        {
+            <p>Brak</p>
+        }
+    }
+</ul>
