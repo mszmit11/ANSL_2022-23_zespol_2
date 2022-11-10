@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\obrazki\home.jpg" />
+    <Content Remove="wwwroot\obrazki\home.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\index.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />

@@ -1,10 +1,101 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    var test = "Booking here";
+    //wzor glownej strony
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>test</p>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="./Booking Form HTML Template_files/bootstrap.min.css">
+
+    <link type="text/css" rel="stylesheet" href="./Booking Form HTML Template_files/style.css">
+
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+    <meta name="robots" content="noindex, follow">
+</head>
+<body>
+    <div id="background_pic"></div>
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        <div class="form-header">
+                            <h1>Wyszukaj oferty</h1>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Zameldowanie</span>
+                                        <input class="form-control" type="date" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Wymeldowanie</span>
+                                        <input class="form-control" type="date" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Miasto</span>
+                                        <select class="form-control">
+                                            <option>Łomża</option>
+                                            <option>Białystok</option>
+                                            <option>Ełk</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Dorośli</span>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Dzieci</span>
+                                        <select class="form-control">
+                                            <option>0</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-btn">
+                                <button class="submit-btn">Sprawdź dostępność</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" async="" src="./Booking Form HTML Template_files/analytics.js.pobrane"></script>
+    <script async="" src="./Booking Form HTML Template_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer="" src="./Booking Form HTML Template_files/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;768051dbbcad0037&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2022.11.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+</body>
