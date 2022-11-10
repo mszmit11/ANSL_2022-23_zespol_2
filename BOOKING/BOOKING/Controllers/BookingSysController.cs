@@ -1,10 +1,12 @@
 ﻿using BOOKING.Models;
 using BOOKING.Services;
 using BOOKING.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOOKING.Controllers
 {
+    [Authorize] // tylko po zalogowaniu
     public class BookingSysController : Controller
     {
         //dependency injection

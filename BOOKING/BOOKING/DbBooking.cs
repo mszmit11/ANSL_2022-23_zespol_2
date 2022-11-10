@@ -1,9 +1,10 @@
 ﻿using BOOKING.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BOOKING
 {
-    public class DbBooking : DbContext
+    public class DbBooking : IdentityDbContext<UserModel>
     {
         public DbBooking(DbContextOptions<DbBooking> options) : base(options) { }
 

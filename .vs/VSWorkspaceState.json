@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BOOKING",
+    "\\BOOKING\\BOOKING",
+    "\\BOOKING\\BOOKING\\Views",
+    "\\BOOKING\\BOOKING\\Views\\BookingSys"
   ],
-  "SelectedNode": "\\F:\\cos\\projektzesp\\gitBooking",
+  "SelectedNode": "\\BOOKING\\BOOKING\\Views\\BookingSys\\List.cshtml",
   "PreviewInSolutionExplorer": false
 }

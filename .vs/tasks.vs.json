@@ -5,6 +5,11 @@
       "taskLabel": "zadanie-gitBooking",
       "appliesTo": "/",
       "type": "launch"
+    },
+    {
+      "taskLabel": "zadanie-BOOKING",
+      "appliesTo": "BOOKING/",
+      "type": "launch"
     }
   ]
 }

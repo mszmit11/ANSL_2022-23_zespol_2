@@ -1,0 +1,15 @@
+﻿@model BOOKING.Models.Register
+
+<h2>Rejestracja</h2>
+
+@using(Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+
+    <span>Login:  </span> @Html.TextBoxFor(x => x.userName)
+    <span>E-mail:  </span> @Html.TextBoxFor(x => x.Email)
+    <span>Hasło:  </span> @Html.PasswordFor(x => x.Password)
+
+    <button type ="submit">Rejestruj</button>
+    
+}
