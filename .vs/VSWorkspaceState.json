@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\BOOKING",
-    "\\BOOKING\\BOOKING",
-    "\\BOOKING\\BOOKING\\Views",
-    "\\BOOKING\\BOOKING\\Views\\BookingSys"
+    ""
   ],
-  "SelectedNode": "\\BOOKING\\BOOKING\\Views\\BookingSys\\List.cshtml",
+  "SelectedNode": "\\BOOKING.sln",
   "PreviewInSolutionExplorer": false
 }

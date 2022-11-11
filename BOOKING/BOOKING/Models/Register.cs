@@ -6,14 +6,14 @@ namespace BOOKING.Models
 {
     public class Register
     {
-        [Required]
+        [Required(ErrorMessage = "Login jest wymagany!")]
         public string userName { get; set; }
 
         [EmailAddress]
-        [Required]
+        [Required(ErrorMessage = "E-mail jest wymagany!")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Hasło jest wymagane!")]
         public string Password { get; set; }
     }
 }
