@@ -14,7 +14,10 @@ namespace BOOKING.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Kategoria jest wymagana!")]
-        public string Category { get; set; }    
-        
+        public string Category { get; set; }
+
+        [Required(ErrorMessage = "Miasto jest wymagane!")]
+        public string Locality { get; set; }
+
     }
 }

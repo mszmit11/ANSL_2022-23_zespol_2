@@ -10,7 +10,7 @@
 <ul>
     @foreach (var product in Model)
     {
-        <li>@product.Category - @product.Name - @product.Id</li>
+        <li>@product.Category - @product.Name - @product.Id - @product.Locality</li>
     }
 </ul>
 
@@ -21,7 +21,7 @@
     {
         if(product.Category == "Pokój")
         {
-            <li>@product.Category - @product.Name - @product.Id</li>
+            <li>@product.Category - @product.Name - @product.Id - @product.Locality</li>
         }
         else
         {
