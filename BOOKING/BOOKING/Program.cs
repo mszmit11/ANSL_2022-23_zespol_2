@@ -13,8 +13,11 @@ builder.Services.AddScoped<IBookingService, BookingService>();
 //mssql
 builder.Services.AddDbContext<DbBooking>(builder =>
 {
-    builder.UseSqlServer(@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=DbBooking;Integrated Security=True");
+    builder.UseSqlServer(@"Data Source=mssql5.webio.pl,2401;Database=testbooking_BOOKING;Uid=testbooking_adminDB;Password=rwjNkZiSgXzL5nU@;TrustServerCertificate=True");
 });
+//@"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=DbBooking;Integrated Security=True"
+//@"Data Source=mssql5.webio.pl,2401;Database=testbooking_BOOKING;Uid=testbooking_adminDB;Password=rwjNkZiSgXzL5nU@;r;TrustServerCertificate=True"
+
 //logowanie identity framework
 builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
 {
