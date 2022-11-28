@@ -53,7 +53,7 @@ namespace BOOKING.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(userLoginData);
+                return View();
             }
 
             //logika logująca - metoda async

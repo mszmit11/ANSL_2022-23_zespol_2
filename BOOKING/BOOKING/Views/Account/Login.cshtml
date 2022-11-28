@@ -1,14 +1,21 @@
 ﻿@model BOOKING.Models.Register
 
-<h2>Logowanie</h2>
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+<link type="text/css" rel="stylesheet" href="./Booking Form HTML Template_files/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="./Booking Form HTML Template_files/style.css">
 
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
-    @Html.ValidationSummary();
-
-    <p>Login:  </p> @Html.TextBoxFor(x => x.userName)
-    <p>Hasło:  </p> @Html.PasswordFor(x => x.Password)
-
-    <p><button type="submit">Zaloguj</button></p>
-
-}
+<div class="box">
+	<form method="post" asp-controller="Account" asp-action="Login" >
+		<h2>@Html.ValidationSummary()</h2>;
+		<span class="text-center">logowanie</span>
+	<div class="input-container">
+			@Html.TextBoxFor(x => x.userName)
+		<label>Login</label>		
+	</div>
+		<div class="input-container">
+			@Html.PasswordFor(x => x.Password)
+		<label>Hasło</label>
+	</div>
+		<button type="submit" class="btn">Zaloguj</button>
+</form>	
+</div>
