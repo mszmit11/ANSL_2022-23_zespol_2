@@ -69,7 +69,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
-        public IActionResult FilteredList([FromQuery] string location)
+        public IActionResult Search([FromQuery] string location)
         {
             if(_bookingService == null)
             {
