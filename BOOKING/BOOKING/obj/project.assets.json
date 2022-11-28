@@ -10785,24 +10785,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\druqz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\knlka\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\cos\\projektzesp\\booking\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "projectUniqueName": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
       "projectName": "BOOKING",
-      "projectPath": "F:\\cos\\projektzesp\\booking\\BOOKING\\BOOKING\\BOOKING.csproj",
-      "packagesPath": "C:\\Users\\druqz\\.nuget\\packages\\",
-      "outputPath": "F:\\cos\\projektzesp\\booking\\BOOKING\\BOOKING\\obj\\",
+      "projectPath": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "packagesPath": "C:\\Users\\knlka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\druqz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\knlka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10882,7 +10877,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
