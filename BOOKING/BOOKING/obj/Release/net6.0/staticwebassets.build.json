@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6bnf3XOSDuT1jNMSioN41CIGS4K+Q9peETfiHJbvlZM=",
+  "Hash": "I4/E+PqNQ1Pxq0EyNJFC1ObY+hyNdT1D9FUBD/6FWLY=",
   "Source": "BOOKING",
   "BasePath": "_content/BOOKING",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
+    },
+    {
+      "Identity": "F:\\cos\\projektzesp\\bookign1\\BOOKING\\BOOKING\\wwwroot\\css\\login.css",
+      "SourceId": "BOOKING",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\cos\\projektzesp\\bookign1\\BOOKING\\BOOKING\\wwwroot\\",
+      "BasePath": "_content/BOOKING",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "F:\\cos\\projektzesp\\bookign1\\BOOKING\\BOOKING\\wwwroot\\css\\site.css",
