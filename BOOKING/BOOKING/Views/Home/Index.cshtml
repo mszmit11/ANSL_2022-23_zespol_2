@@ -3,6 +3,7 @@
     //wzor glownej strony
 }
 
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -27,7 +28,7 @@
                         <div class="form-header">
                             <h1>Wyszukaj oferty</h1>
                         </div>
-                        <form>
+                        <form method="get" asp-controller="BookingSys" asp-action="FilteredList">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -63,13 +64,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <span class="form-label">Miasto</span>
-                                        <input class="cityText" type="text" typeof="text" name="nazwa">
+                                        <input type="text" placeholder="Wpisz miasto" name="location" id="location">
                                         <span class="select-arrow"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-btn">
-                                <button class="submit-btn">Sprawdź dostępność</button>
+                                <button class="submit-btn" type="submit">Sprawdź dostępność</button>
                             </div>
                         </form>
                     </div>

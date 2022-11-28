@@ -3,6 +3,10 @@ using BOOKING.Services;
 using BOOKING.Services.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Xml.Linq;
 
 namespace BOOKING.Controllers
 {
@@ -63,5 +67,24 @@ namespace BOOKING.Controllers
             _bookingService.Delete(id);
             return RedirectToAction("List");
         }
+
+        [HttpGet]
+        public IActionResult FilteredList([FromQuery] string location)
+        {
+            if(_bookingService == null)
+            {
+                return Problem("Brak dostępnych pokoi.");
+            }
+            var products = _bookingService.GetAll();
+
+            if (!String.IsNullOrEmpty(location))
+            {
+                var result  = products.Where(s => s.Locality!.Contains(location)).OrderByDescending(x=>x.Id);
+                return View("List", result);
+            }
+            return NotFound();
+            
+        }
+
     }
 }

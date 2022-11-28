@@ -43,5 +43,6 @@ namespace BOOKING.Controllers
         {
             return RedirectToAction("Privacy");
         }
+
     }
 }
