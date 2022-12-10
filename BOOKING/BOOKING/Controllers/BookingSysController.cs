@@ -79,7 +79,7 @@ namespace BOOKING.Controllers
 
             if (!String.IsNullOrEmpty(location))
             {
-                var result  = products.Where(s => s.Locality!.Contains(location) && s.Category!.Contains(cat)
+                var result  = products.Where(s => s.Locality.ToLower()!.Contains(location.ToLower()) && s.Category!.Contains(cat)
                     && s.startDate! <= start && s.endDate! >= end);
                 return View("List", result);
             }
