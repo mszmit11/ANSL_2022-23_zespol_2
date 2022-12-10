@@ -18,6 +18,12 @@
     <p>Miasto: </p>
     @Html.TextBoxFor(x => x.Locality)
 
+    <p>Od kiedy dostępne: </p>
+    <input asp-for="startDate" type="date" class="form-control" />
+
+    <p>Do kiedy dostępne: </p>
+    <input asp-for="endDate" type="date" class="form-control" />
+
     <p><button type="submit">Wyślij</button></p>
 }
 <style>

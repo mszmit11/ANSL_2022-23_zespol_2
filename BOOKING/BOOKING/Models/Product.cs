@@ -19,5 +19,13 @@ namespace BOOKING.Models
         [Required(ErrorMessage = "Miasto jest wymagane!")]
         public string Locality { get; set; }
 
+        [Required(ErrorMessage = "Początkowa data jest wymagana!")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime startDate { get; set; }
+
+        [Required(ErrorMessage = "Końcowa data jest wymagana!")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime endDate { get; set; }
+
     }
 }
