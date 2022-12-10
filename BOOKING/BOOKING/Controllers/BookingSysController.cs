@@ -69,7 +69,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
-        public IActionResult Search([FromQuery] string location)
+        public IActionResult Search([FromQuery] string location, [FromQuery] DateTime start, [FromQuery] DateTime end, [FromQuery] string cat)
         {
             if(_bookingService == null)
             {
@@ -79,7 +79,8 @@ namespace BOOKING.Controllers
 
             if (!String.IsNullOrEmpty(location))
             {
-                var result  = products.Where(s => s.Locality!.Contains(location)).OrderByDescending(x=>x.Id);
+                var result  = products.Where(s => s.Locality!.Contains(location) && s.Category!.Contains(cat)
+                    && s.startDate! <= start && s.endDate! >= end);
                 return View("List", result);
             }
             return NotFound();
