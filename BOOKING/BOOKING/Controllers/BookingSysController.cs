@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
+using System.Globalization;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace BOOKING.Controllers
 {
@@ -15,9 +18,12 @@ namespace BOOKING.Controllers
     {
         //dependency injection
         private readonly IBookingService _bookingService;
-        public BookingSysController(IBookingService bookingService)
+        private readonly UserManager<UserModel> _userManager;
+
+        public BookingSysController(IBookingService bookingService, UserManager<UserModel> userManager)
         {
             _bookingService = bookingService;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -39,7 +45,7 @@ namespace BOOKING.Controllers
             {
                 return View(body);
             }
-
+            
             var id = _bookingService.Save(body);
 
             TempData["ProductId"] = id;
@@ -58,6 +64,10 @@ namespace BOOKING.Controllers
         public IActionResult Details(int id)
         {
             var product = _bookingService.Get(id);
+            TempData["ProductId"] = id;
+            TempData["ProductEndDay"] = product.endDate.Day.ToString();
+            TempData["ProductEndMonth"] = product.endDate.Month.ToString();
+            TempData["ProductEndYear"] = product.endDate.Year.ToString();
             return View(product);
         }
 
@@ -85,6 +95,37 @@ namespace BOOKING.Controllers
             }
             return NotFound();
             
+        }
+
+        [HttpGet]
+        public IActionResult Reservation()
+        {
+            TempData["ProductId2"] = TempData["ProductId"];
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Reservation(Reservation body)
+        {
+            //walidacja
+            if (!ModelState.IsValid)
+            {
+                return View(body);
+            }
+            var product = _bookingService.Get((int)TempData["ProductId2"]);
+            body.ProductId = product.Id;
+            //body.CustomerId = HttpContext.User.FindFirstValue("UserID");
+            body.CustomerId = _userManager.GetUserId(HttpContext.User);
+            var id = _bookingService.SaveReservation(body);
+
+            return RedirectToAction("ReservationInfo");
+        }
+
+        [HttpGet]
+        public IActionResult ReservationInfo()
+        {
+            var reservations = _bookingService.GetAllReservations();
+            return View(reservations);
         }
 
     }

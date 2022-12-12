@@ -1,0 +1,30 @@
+﻿@model BOOKING.Models.Reservation
+
+@{
+    ViewData["Title"] = "Reservation";
+}
+
+@using (Html.BeginForm("Reservation", "BookingSys", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <p>Imie: </p>
+    @Html.TextBoxFor(x => x.Name)
+
+    <p>Nazwisko: </p>
+    @Html.TextBoxFor(x => x.secondName)
+
+    <p>Zameldowanie: </p>
+    <p>
+        <input asp-for="Start" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@TempData["ProductEndYear"]-@TempData["ProductEndMonth"]-@TempData["ProductEndDay"]" />
+    </p>
+
+    <p>Wymeldowanie: </p>
+    <p>
+        <input asp-for="End" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@TempData["ProductEndYear"]-@TempData["ProductEndMonth"]-@TempData["ProductEndDay"]" />
+    </p>
+    <p>ProductID: </p>
+    <p>@TempData["ProductId"]</p>
+
+    <p><button type="submit">Zarezerwuj</button></p>
+}

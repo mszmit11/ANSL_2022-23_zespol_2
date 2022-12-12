@@ -46,5 +46,41 @@ namespace BOOKING.Services
 
             return product.Id;
         }
+
+        public int SaveReservation(Reservation reservation)
+        {
+            _BookingContex.Reservations.Add(reservation);
+
+            if (_BookingContex.SaveChanges() > 0)
+            {
+                System.Console.WriteLine("SUKCES");
+            };
+
+            return reservation.Id;
+        }
+
+        public int DeleteReservation(int id)
+        {
+            var reservation = _BookingContex.Reservations.Find(id);
+            _BookingContex.Reservations.Remove(reservation);
+            _BookingContex.SaveChanges();
+
+            return id;
+        }
+
+        public Reservation GetReservation(int id)
+        {
+            var reservation = _BookingContex.Reservations.Find(id);
+
+            return reservation;
+        }
+
+        public List<Reservation> GetAllReservations()
+        {
+            var reservation = _BookingContex.Reservations.ToList();
+
+            return reservation;
+        }
+
     }
 }

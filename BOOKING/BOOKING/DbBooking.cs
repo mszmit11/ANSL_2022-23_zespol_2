@@ -9,6 +9,7 @@ namespace BOOKING
         public DbBooking(DbContextOptions<DbBooking> options) : base(options) { }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

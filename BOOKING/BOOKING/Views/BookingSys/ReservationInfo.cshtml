@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BOOKING.Models.Reservation>
+
+<h1>Lista rezerwacji</h1>
+
+<ol>
+    @foreach (var reservation in Model)
+    {
+        <li>
+            <b>@reservation.Name</b> - @reservation.secondName - @reservation.Start - @reservation.End - @reservation.ProductId - @reservation.CustomerId
+        </li>
+    }
+</ol>

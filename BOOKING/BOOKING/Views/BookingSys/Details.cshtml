@@ -7,3 +7,4 @@
 <p>Lokalizacja: @Model.Locality</p>
 <p>Od kiedy dostępne: @Model.startDate.ToShortDateString()</p>
 <p>Do kiedy dostępne: @Model.endDate.ToShortDateString()</p>
+<p><button class="reservation_btn" type="submit" onclick="@("window.location.href='" + @Url.Action("Reservation", "BookingSys") + "'");">Rezerwuj</button></p>
