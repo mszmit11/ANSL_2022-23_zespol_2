@@ -19,10 +19,10 @@
     @Html.TextBoxFor(x => x.Locality)
 
     <p>Od kiedy dostępne: </p>
-    <input asp-for="startDate" type="date" class="form-control" />
+    <input asp-for="startDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
 
     <p>Do kiedy dostępne: </p>
-    <input asp-for="endDate" type="date" class="form-control" />
+    <input asp-for="endDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
 
     <p><button type="submit">Wyślij</button></p>
 }

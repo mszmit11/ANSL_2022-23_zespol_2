@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using Newtonsoft.Json;
 
 namespace BOOKING.Controllers
 {
@@ -65,9 +66,8 @@ namespace BOOKING.Controllers
         {
             var product = _bookingService.Get(id);
             TempData["ProductId"] = id;
-            TempData["ProductEndDay"] = product.endDate.Day.ToString();
-            TempData["ProductEndMonth"] = product.endDate.Month.ToString();
-            TempData["ProductEndYear"] = product.endDate.Year.ToString();
+            string date = product.endDate.ToString("yyyy-MM-dd");
+            TempData["ProductDate"] = date;
             return View(product);
         }
 
@@ -98,9 +98,10 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
-        public IActionResult Reservation()
+        public IActionResult Reservation(int id)
         {
             TempData["ProductId2"] = TempData["ProductId"];
+            TempData.Keep();
             return View();
         }
 

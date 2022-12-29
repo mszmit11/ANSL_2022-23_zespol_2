@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BOOKING.Migrations
 {
     [DbContext(typeof(DbBooking))]
-    [Migration("20221212000253_init1337")]
-    partial class init1337
+    [Migration("20221228124819_initlocal")]
+    partial class initlocal
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,6 @@ namespace BOOKING.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CustomerId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("End")
