@@ -11,6 +11,7 @@ namespace BOOKING.Services.Interface
         int SaveReservation(Reservation reservation);
         List<Reservation> GetAllReservations();
         Reservation GetReservation(int id);
+        List<Reservation> GetReservationId(int ProductId);
         int DeleteReservation(int id);
     }
 }

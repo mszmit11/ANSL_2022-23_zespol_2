@@ -1,10 +1,23 @@
-﻿@model BOOKING.Models.Product
+﻿@model dynamic
+
+@{
+    var product = (Product)ViewData["product"];
+    var reservations = ViewData["reservations"] as List<Reservation>;
+}
 
 <h1>Szczegóły noclegu</h1>
-<p>Nazwa: @Model.Name</p>
-<p>Opis: @Model.Description</p>
-<p>Kategoria: @Model.Category</p>
-<p>Lokalizacja: @Model.Locality</p>
-<p>Od kiedy dostępne: @Model.startDate.ToShortDateString()</p>
-<p>Do kiedy dostępne: @Model.endDate.ToShortDateString()</p>
+<p>Nazwa: @product.Name</p>
+<p>Opis: @product.Description</p>
+<p>Kategoria: @product.Category</p>
+<p>Lokalizacja: @product.Locality</p>
+<p>Od kiedy dostępne: @product.startDate.ToShortDateString()</p>
+<p>Do kiedy dostępne: @product.endDate.ToShortDateString()</p>
+<p>Rezerwacje:</p>
+@foreach (var reservation in reservations)
+{
+<li>
+    <p>Od: @reservation.Start.ToShortDateString()</p>
+    <p>Do: @reservation.End.ToShortDateString()</p>
+</li>
+}
 <p><button class="reservation_btn" type="submit" onclick="@("window.location.href='" + @Url.Action("Reservation", "BookingSys") + "'");">Rezerwuj</button></p>

@@ -1,19 +1,41 @@
-﻿@model IEnumerable<BOOKING.Models.Product>
+﻿@model dynamic
 
-    <h1>Lista produktów</h1>
+@{
+    var products = (IEnumerable<Product>)ViewData["Product"];
+    var reservations = ViewData["Reservations"] as List<Reservation>;
+    var displayedProductIds = new HashSet<int>();
+}
 
-    <ol>
-        @foreach(var product in Model)
+<h1>Lista pokoi</h1>
+
+<ol>
+    @if(products == null)
+    {
+        <h1>Brak dostępnych pokoi</h1>
+    }
+    else
+    {
+    @foreach (var product in products)
+    {
+        var isReserved = reservations.Any(r => r.ProductId == product.Id && r.Start == product.startDate && r.End == product.endDate);
+        if (!displayedProductIds.Contains(product.Id))
         {
+            displayedProductIds.Add(product.Id);
             <li>
                 <b>@product.Name</b> - @product.Category
+                @if (isReserved)
+                {
+                    <p>ZAREZERWOWANY</p>
+               }
                 <a href="@Url.Action("Details","BookingSys", new { Id = product.Id})">Szczegóły</a>
 
                 @using (Html.BeginForm("Delete", "BookingSys", FormMethod.Post))
                 {
-                    <input type="hidden" name="Id" value="@product.Id"/>
+                    <input type="hidden" name="Id" value="@product.Id" />
                     <button type="submit">Usuń</button>
                 }
             </li>
         }
-    </ol>
+    }
+    }
+</ol>

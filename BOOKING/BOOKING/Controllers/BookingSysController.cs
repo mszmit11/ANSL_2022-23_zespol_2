@@ -58,7 +58,10 @@ namespace BOOKING.Controllers
         public IActionResult List()
         {
             var products = _bookingService.GetAll();
-            return View(products);
+            var reservations = _bookingService.GetAllReservations();
+            ViewData["Product"] = products;
+            ViewData["Reservations"] = reservations;
+            return View();
         }
 
         [HttpGet]
@@ -68,7 +71,10 @@ namespace BOOKING.Controllers
             TempData["ProductId"] = id;
             string date = product.endDate.ToString("yyyy-MM-dd");
             TempData["ProductDate"] = date;
-            return View(product);
+            var reservations = _bookingService.GetReservationId(id);
+            ViewData["Product"] = product;
+            ViewData["Reservations"] = reservations;
+            return View();
         }
 
         [HttpPost]
@@ -89,9 +95,11 @@ namespace BOOKING.Controllers
 
             if (!String.IsNullOrEmpty(location))
             {
-                var result  = products.Where(s => s.Locality.ToLower()!.Contains(location.ToLower()) && s.Category!.Contains(cat)
+                var result = products.Where(s => s.Locality.ToLower()!.Contains(location.ToLower()) && s.Category!.Contains(cat)
                     && s.startDate! <= start && s.endDate! >= end);
-                return View("List", result);
+                ViewData["Product"] = result;
+                ViewData["Reservations"] = _bookingService.GetAllReservations();
+                return View("List");
             }
             return NotFound();
             

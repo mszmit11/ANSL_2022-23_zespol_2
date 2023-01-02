@@ -1,5 +1,6 @@
 ﻿using BOOKING.Models;
 using BOOKING.Services.Interface;
+using NuGet.Versioning;
 
 namespace BOOKING.Services
 {
@@ -78,6 +79,15 @@ namespace BOOKING.Services
         public List<Reservation> GetAllReservations()
         {
             var reservation = _BookingContex.Reservations.ToList();
+
+            return reservation;
+        }
+
+        public List<Reservation> GetReservationId(int ProductId)
+        {
+            var reservation = _BookingContex.Reservations
+                .Where(r => r.ProductId == ProductId)
+                .ToList();
 
             return reservation;
         }

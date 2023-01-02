@@ -16,12 +16,12 @@
 
     <p>Zameldowanie: </p>
     <p>
-        <input asp-for="Start" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+        <input asp-for="Start" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
     </p>
 
     <p>Wymeldowanie: </p>
     <p>
-        <input asp-for="End" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+        <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
     </p>
     <p>ProductID: </p>
     <p>@TempData["ProductId"]</p>
