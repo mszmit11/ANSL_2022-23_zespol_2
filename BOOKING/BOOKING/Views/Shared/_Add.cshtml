@@ -2,30 +2,54 @@
 
 <!--html helper-->
 <!--Formularz dodawania pokoi do systemu-->
-@using (Html.BeginForm("Add", "BookingSys", FormMethod.Post))
-{
-    @Html.ValidationSummary()
 
+    <form asp-controller="BookingSys" asp-action="Add" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
     <p>Nazwa: </p>
     @Html.TextBoxFor(x => x.Name)
+    <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
     <p>Opis: </p>
     @Html.TextBoxFor(x => x.Description)
+    <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
     <p>Kategoria: </p>
     @Html.TextBoxFor(x => x.Category)
+    <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
     <p>Miasto: </p>
     @Html.TextBoxFor(x => x.Locality)
+    <span asp-validation-for="Locality" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
     <p>Od kiedy dostępne: </p>
     <input asp-for="startDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    <span asp-validation-for="startDate" class="text-danger"></span>
+    </div>
 
+    <div class="form-group">
     <p>Do kiedy dostępne: </p>
     <input asp-for="endDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+    <span asp-validation-for="endDate" class="text-danger"></span>
+    </div>
 
-    <p><button type="submit">Wyślij</button></p>
-}
+    <div class="form-group">
+        <label asp-for="ImageFile" class="control-label"></label>
+        <input asp-for="ImageFile" type="file" class="form-control">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <p><button type="submit" value="Create">Wyślij</button></p>
+    </form>
+
 <style>
     p {
         display: block;

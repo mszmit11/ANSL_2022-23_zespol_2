@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BOOKING.CutomValidationAttributes;
+using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BOOKING.Models
 {
@@ -27,5 +30,13 @@ namespace BOOKING.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime endDate { get; set; }
 
+        [DataType(DataType.ImageUrl)]
+        public string? ImageUrl { get; set; }
+
+        [MaxFileSize(1 * 1024 * 1024)]
+        [PermittedExtensions(new string[] { ".jpg", ".png", ".jpeg" })]
+        [NotMapped]
+        public virtual IFormFile ImageFile { get; set; }
+        public string? ImageStorageName { get; set; }
     }
 }

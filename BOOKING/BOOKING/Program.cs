@@ -1,4 +1,5 @@
 using BOOKING;
+using BOOKING.CloudStorage;
 using BOOKING.Models;
 using BOOKING.Services;
 using BOOKING.Services.Interface;
@@ -28,6 +29,8 @@ builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
     options.Password.RequireLowercase = false; // to tez
 
 }).AddEntityFrameworkStores<DbBooking>();
+
+builder.Services.AddSingleton<ICloudStorage, GoogleCloudStorage>();
 
 var app = builder.Build();
 

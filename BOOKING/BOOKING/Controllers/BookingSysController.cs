@@ -11,6 +11,8 @@ using System.Xml.Linq;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Newtonsoft.Json;
+using System.Net;
+using BOOKING.CloudStorage;
 
 namespace BOOKING.Controllers
 {
@@ -20,11 +22,15 @@ namespace BOOKING.Controllers
         //dependency injection
         private readonly IBookingService _bookingService;
         private readonly UserManager<UserModel> _userManager;
+        private readonly ICloudStorage _cloudStorage;
+        private readonly DbBooking _dbBooking;
 
-        public BookingSysController(IBookingService bookingService, UserManager<UserModel> userManager)
+        public BookingSysController(IBookingService bookingService, UserManager<UserModel> userManager, ICloudStorage cloudStorage, DbBooking dbBooking)
         {
             _bookingService = bookingService;
             _userManager = userManager;
+            _cloudStorage = cloudStorage;
+            _dbBooking = dbBooking;
         }
 
         public IActionResult Index()
@@ -39,19 +45,21 @@ namespace BOOKING.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Product body)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFile")]Product body)
         {
-            //walidacja
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(body);
-            }
-            
-            var id = _bookingService.Save(body);
+                if (body.ImageFile != null)
+                {
+                    await UploadFile(body);
+                }
 
-            TempData["ProductId"] = id;
-            //logika do zapisu
-            return RedirectToAction("List");
+                _dbBooking.Products.Add(body);
+                await _dbBooking.SaveChangesAsync();
+                return RedirectToAction("List");
+            }
+            return View(body);
         }
 
         [HttpGet]
@@ -135,6 +143,23 @@ namespace BOOKING.Controllers
         {
             var reservations = _bookingService.GetAllReservations();
             return View(reservations);
+        }
+
+        private async Task UploadFile(Product body)
+        {
+            string fileNameForStorage = FormFileName(body.Name, body.ImageFile.FileName);
+            if (body.Name != null && body.Locality != null && body.Category != null)
+            {
+                body.ImageUrl = await _cloudStorage.UploadFileAsync(body.ImageFile, fileNameForStorage);
+                body.ImageStorageName = fileNameForStorage;
+            }
+        }
+
+        private static string FormFileName(string title, string fileName)
+        {
+            var fileExtension = Path.GetExtension(fileName);
+            var fileNameForStorage = $"{title}-{DateTime.Now.ToString("yyyyMMddHHmmss")}{fileExtension}";
+            return fileNameForStorage;
         }
 
     }

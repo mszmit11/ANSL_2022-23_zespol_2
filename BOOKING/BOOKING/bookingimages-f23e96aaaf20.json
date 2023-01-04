@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bookingimages",
+  "private_key_id": "f23e96aaaf20b3f7b8dbf609bad4cf7dd5106fe2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3mb2Yvuqu8MpW\n7ITi3uA4W05jAprCP72QcAyAO6XvhiSxDwMDzHKYTaKAxoQxKxr3i80qJJR4YItz\n0C86M0X+uCXW0q20aTMNF+iVgjA5YwsD0TynRvIOyPp/kXH1peagmWh2F8VTVCVQ\nwnRlQRq5y1nk8VINq6eB9veQcanorp7LYyuc6CqVaDPFDP06tefsITRKLOnZXl8c\nTw+WDU5FL5nqgTKDEcLWxpUjs4sGKLt9b1yeb6CbUeitaVOwzXljRfXdhOWKaSyk\n+WQiNnMAazqXF/4CDflRyarzgzvZXqjNvZSf1qJbtwftOo71KTy8UF2jzfXvPiiS\nTcD5lZlRAgMBAAECggEAFQ7xUgUY1Byqapaphb+IQnKHjr/oWf4XWysc5fLhfRP6\n3qORBhUjsjAaYtCSLjUKXGkIrMwiCt4Q9KVE23Uw0q7SqT2EHrCfwkFTJB3Y8+YW\nJ/eOcEXJAvTelXXsVx9ykMpTstLWZ1C8EHOjR89UNkn6izG6JncBKR0XZ1YAJd+6\npEgzQ7VAsCs/oC34Z7PgjwRq3Av6m/I8qU8nqNDB5rdsKTiED6D/quWEGlpGAdD7\nSbKQY7iIDknCzZjbTasK9XjWFedYwrwrfqJ5angFcYulNyYhNpoHzxt/AC+rfc5w\nQ69D+m25xgMAHS485qz5ozctFsTgDGyzwUJiBfUIOQKBgQDmTXPwsUHRP0/HYmKV\nJ0aK0sJoUX8vwz6CHrOeuOba1UXSdgheG/Jr/AmTcfFZjxMaYSZ0kLxeW7rh0iel\nHa7+PVqwjCpwW8wVW+SoTL+R/vySZ6/3+2Qe4+bhDDqiVG8a3rFndiJmBxGHoHy1\nmejjYrNLM5YXFbs05WxVJZpUSQKBgQDMFkEVeELGY3gVOD+/H4ua1Joj+IxCyLkb\nMqpP3BNz4pIzxHcVTSxmAB8/WZk19A5TK3zV8VM+VoiLmgCzbDOlsE6R1K2l/s39\nEp3qqwK0usdRqIneKc08qCewsxTlQx+hrrajMDXfyC/zPlYeONh09qsL0x/Yb9EH\nfTanz8YMyQKBgQC1mdGYtE2wEHp6QKx37LaFdVfzJoBiS1UZCdidijQPzyj1ojlK\n7EKmv+FVMP4dnuJzZLQMKq0+wpqEw1CbtOJufDbtDDnSy7AMD6AozgwptaW4VKa/\npq32ZcODJj9+DZJm37+IU/Ef/ublyblNAgZQd13mKNFrdqleNqLMKZCecQKBgDjQ\n9TuJ6GUcqgCWUUDfAlmPWH4tIrcw9D97ImjrJss7R2J8Dn7ypiqbXBeh1QJtOFO1\nJqLU9UzEgG0E6a8Jr3MwGx+EKvescSJEPYxoIW+5E+ZK2l7sGkQJuEr8ABQ3VKYJ\nYrUZpdXwAFFiiE0PnEsrpMC8/P+fWX0RQdcEA+npAoGBAIBAdH8y4PxA0gslMv49\nQITinP9oJ86GX2hFl/IxPcPNgZUIjDhCnme2G5YqgQaaSlW3p1Rsc/4UbiIWu9hO\nUPvliLFP2O5mSrSmt+npCG8CG1/Bg5B5QNPj2kNzlifrCWtDnUa97P1bm+xwK+bM\nLiBQIeAn2crxQkveQ1rHJWyv\n-----END PRIVATE KEY-----\n",
+  "client_email": "bookingmanager@bookingimages.iam.gserviceaccount.com",
+  "client_id": "117234415392393528652",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bookingmanager%40bookingimages.iam.gserviceaccount.com"
+}
