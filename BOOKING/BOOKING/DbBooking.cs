@@ -1,6 +1,9 @@
 ﻿using BOOKING.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Newtonsoft.Json;
+using System.Reflection.Emit;
 
 namespace BOOKING
 {
@@ -14,6 +17,7 @@ namespace BOOKING
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
         }
     }
 }

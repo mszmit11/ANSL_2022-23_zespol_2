@@ -3,6 +3,7 @@
 @{
     var product = (Product)ViewData["product"];
     var reservations = ViewData["reservations"] as List<Reservation>;
+    
 }
 
 <h1>Szczegóły noclegu</h1>
@@ -21,7 +22,13 @@
 </li>
 }
 <dd class="col-sm-10">
-    <img src="@Url.Content(product.ImageUrl)" alt="Image" style="width: 450px; height: 450px;" />
+    @if (product.ImageUrls != null)
+    {
+        foreach (var imgUrl in product.ImageUrls)
+        {
+            <img src="@Url.Content(imgUrl.Url)" alt="Product Image" style="width: 150px; height: 220px;" />
+        }
+    }
 </dd>
 
 <p><button class="reservation_btn" type="submit" onclick="@("window.location.href='" + @Url.Action("Reservation", "BookingSys") + "'");">Rezerwuj</button></p>

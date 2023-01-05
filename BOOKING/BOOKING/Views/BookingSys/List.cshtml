@@ -34,10 +34,13 @@
                     <input type="hidden" name="Id" value="@product.Id" />
                     <button type="submit">Usuń</button>
                 }
-                @if (product.ImageUrl != null)
-                {
-                    <img src="@Url.Content(product.ImageUrl)" alt="Image" style="width: 150px; height: 220px;"/>
-                }
+                    @if (product.ImageUrls != null)
+                    {
+                        foreach (var imgUrl in product.ImageUrls)
+                        {
+                            <img src="@Url.Content(imgUrl.Url)" alt="Product Image" style="width: 150px; height: 220px;" />
+                        }
+                    }
             </li>
         }
     }

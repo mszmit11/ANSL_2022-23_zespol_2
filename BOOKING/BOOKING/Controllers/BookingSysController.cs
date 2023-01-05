@@ -46,13 +46,13 @@ namespace BOOKING.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFile")]Product body)
+        public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFiles")] Product body)
         {
             if (ModelState.IsValid)
             {
-                if (body.ImageFile != null)
+                if (body.ImageFiles != null && body.ImageFiles.Any())
                 {
-                    await UploadFile(body);
+                    await UploadFiles(body, body.ImageFiles);
                 }
 
                 _dbBooking.Products.Add(body);
@@ -86,8 +86,17 @@ namespace BOOKING.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int id)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
         {
+            var product = _bookingService.Get(id);
+            if(product.ImageStorageNames != null)
+            {
+                foreach(var name in product.ImageStorageNames)
+                {
+                    await _cloudStorage.DeleteFileAsync(name.Name);
+                }
+            }
             _bookingService.Delete(id);
             return RedirectToAction("List");
         }
@@ -145,20 +154,30 @@ namespace BOOKING.Controllers
             return View(reservations);
         }
 
-        private async Task UploadFile(Product body)
+        private async Task UploadFiles(Product body, IFormFile[] files)
         {
-            string fileNameForStorage = FormFileName(body.Name, body.ImageFile.FileName);
+
+
             if (body.Name != null && body.Locality != null && body.Category != null)
             {
-                body.ImageUrl = await _cloudStorage.UploadFileAsync(body.ImageFile, fileNameForStorage);
-                body.ImageStorageName = fileNameForStorage;
+                foreach (var file in files)
+                {
+                    string fileNameForStorage = FormFileName(body.Name, file.FileName);
+                    var imageUrls = new[] { new ImageUrls() { Url = await _cloudStorage.UploadFileAsync(file, fileNameForStorage) } };
+                    var names = new[] { new ImageStorageNames() { Name = fileNameForStorage } };
+                    body.ImageUrls.AddRange(imageUrls);
+                    body.ImageStorageNames!.AddRange(names);
+                    //body.ImageUrls!.Add(await _cloudStorage.UploadFileAsync(file, fileNameForStorage));
+                    //fileNames.Add(fileNameForStorage);
+                }
+
             }
         }
 
-        private static string FormFileName(string title, string fileName)
+        private static string FormFileName(string name, string fileName)
         {
             var fileExtension = Path.GetExtension(fileName);
-            var fileNameForStorage = $"{title}-{DateTime.Now.ToString("yyyyMMddHHmmss")}{fileExtension}";
+            var fileNameForStorage = $"{name}-{DateTime.Now.ToString("yyyyMMddHHmmss")}{fileExtension}";
             return fileNameForStorage;
         }
 

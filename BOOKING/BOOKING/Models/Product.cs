@@ -30,13 +30,12 @@ namespace BOOKING.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime endDate { get; set; }
 
-        [DataType(DataType.ImageUrl)]
-        public string? ImageUrl { get; set; }
+        public List<ImageUrls>? ImageUrls { get; set; } = new();
 
         [MaxFileSize(1 * 1024 * 1024)]
         [PermittedExtensions(new string[] { ".jpg", ".png", ".jpeg" })]
         [NotMapped]
-        public virtual IFormFile ImageFile { get; set; }
-        public string? ImageStorageName { get; set; }
+        public virtual IFormFile[]? ImageFiles { get; set; }
+        public List<ImageStorageNames>? ImageStorageNames { get; set; } = new();
     }
 }

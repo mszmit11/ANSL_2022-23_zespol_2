@@ -1,5 +1,6 @@
 ﻿using BOOKING.Models;
 using BOOKING.Services.Interface;
+using Microsoft.EntityFrameworkCore;
 using NuGet.Versioning;
 
 namespace BOOKING.Services
@@ -15,7 +16,8 @@ namespace BOOKING.Services
 
         public int Delete(int id)
         {
-            var product = _BookingContex.Products.Find(id);
+            var product = _BookingContex.Products.Include(i => i.ImageUrls)
+              .FirstOrDefault(x => x.Id == id);
             _BookingContex.Products.Remove(product);
             _BookingContex.SaveChanges();
 
@@ -24,14 +26,15 @@ namespace BOOKING.Services
 
         public Product Get(int id)
         {
-            var product = _BookingContex.Products.Find(id);
+            var product = _BookingContex.Products.Include(i => i.ImageUrls)
+              .FirstOrDefault(x => x.Id == id);
 
-            return product;
+            return product!;
         }
 
         public List<Product> GetAll()
         {
-            var products = _BookingContex.Products.ToList();
+            var products = _BookingContex.Products.Include(x=> x.ImageUrls).ToList();
 
             return products;
         }
