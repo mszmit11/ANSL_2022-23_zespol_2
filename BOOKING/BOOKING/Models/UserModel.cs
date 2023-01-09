@@ -4,6 +4,6 @@ namespace BOOKING.Models
 {
     public class UserModel : IdentityUser
     {
-
+        
     }
 }

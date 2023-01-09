@@ -13,6 +13,7 @@ using System.Security.Claims;
 using Newtonsoft.Json;
 using System.Net;
 using BOOKING.CloudStorage;
+using BOOKING.Data;
 
 namespace BOOKING.Controllers
 {

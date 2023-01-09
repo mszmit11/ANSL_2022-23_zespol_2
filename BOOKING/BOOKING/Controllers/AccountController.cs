@@ -42,8 +42,11 @@ namespace BOOKING.Controllers
                 UserName = userRegisterData.userName
             };
 
-            //funkcjonalność hash'owania - identity core
-            await _userManager.CreateAsync(newUser, userRegisterData.Password);
+            var result = await _userManager.CreateAsync(newUser, userRegisterData.Password);
+            if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(newUser, Enums.Roles.User.ToString());
+            }
 
             return RedirectToAction("Index", "Home");
         }
@@ -53,12 +56,12 @@ namespace BOOKING.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View(userLoginData);
             }
 
             //logika logująca - metoda async
             await _signInManager.PasswordSignInAsync(userLoginData.userName, userLoginData.Password, false, false); // zapamiętywanie, zablokowywanie
-
+            
             return RedirectToAction("Index", "Home");
         }
 

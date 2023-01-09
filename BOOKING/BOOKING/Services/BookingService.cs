@@ -1,4 +1,5 @@
-﻿using BOOKING.Models;
+﻿using BOOKING.Data;
+using BOOKING.Models;
 using BOOKING.Services.Interface;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
@@ -24,14 +25,9 @@ namespace BOOKING.Services
 
             if (product != null)
             {
-                // Remove the related ImageUrls and ImageStorageNames
                 _BookingContex.ImageUrls.RemoveRange(product.ImageUrls);
                 _BookingContex.ImageStorageNames.RemoveRange(product.ImageStorageNames);
-
-                // Remove the Product
                 _BookingContex.Products.Remove(product);
-
-                // Save the changes to the database
                 _BookingContex.SaveChanges();
             }
 

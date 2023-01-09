@@ -1,10 +1,12 @@
-using BOOKING;
 using BOOKING.CloudStorage;
+using BOOKING.Data;
 using BOOKING.Models;
 using BOOKING.Services;
 using BOOKING.Services.Interface;
+using Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +22,7 @@ builder.Services.AddDbContext<DbBooking>(builder =>
 //@"Data Source=mssql5.webio.pl,2401;Database=testbooking_BOOKING;Uid=testbooking_adminDB;Password=rwjNkZiSgXzL5nU@;TrustServerCertificate=True"
 
 //logowanie identity framework
-builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
+builder.Services.AddIdentity<UserModel, IdentityRole>(async options =>
 {
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 2; // do zmiany
@@ -30,9 +32,19 @@ builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
 
 }).AddEntityFrameworkStores<DbBooking>();
 
+
 builder.Services.AddSingleton<ICloudStorage, GoogleCloudStorage>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetService<UserManager<UserModel>>();
+    var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+    await ContextSeed.SeedRolesAsync(userManager, roleManager);
+    await ContextSeed.SeedAdminAsync(userManager, roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

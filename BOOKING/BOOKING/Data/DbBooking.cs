@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newtonsoft.Json;
 using System.Reflection.Emit;
 
-namespace BOOKING
+namespace BOOKING.Data
 {
     public class DbBooking : IdentityDbContext<UserModel>
     {
@@ -19,7 +19,7 @@ namespace BOOKING
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
+
         }
     }
 }
