@@ -56,13 +56,18 @@ namespace BOOKING.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(userLoginData);
+                return View();
             }
 
             //logika logująca - metoda async
-            await _signInManager.PasswordSignInAsync(userLoginData.userName, userLoginData.Password, false, false); // zapamiętywanie, zablokowywanie
             
-            return RedirectToAction("Index", "Home");
+            var result = await _signInManager.PasswordSignInAsync(userLoginData.userName, userLoginData.Password, false, false); // zapamiętywanie, zablokowywanie
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            ModelState.AddModelError(string.Empty, "Nieprawidłowe dane logowania.");
+            return View();
         }
 
         public async Task<IActionResult> Logout()
