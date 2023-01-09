@@ -13,6 +13,8 @@ namespace BOOKING
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<ImageStorageNames> ImageStorageNames { get; set; }
+        public DbSet<ImageUrls> ImageUrls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
