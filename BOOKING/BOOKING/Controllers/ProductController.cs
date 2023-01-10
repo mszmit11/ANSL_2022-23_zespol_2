@@ -1,5 +1,7 @@
-﻿using BOOKING.Models;
+﻿using BOOKING.Enums;
+using BOOKING.Models;
 using BOOKING.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BOOKING.Controllers
@@ -11,11 +13,13 @@ namespace BOOKING.Controllers
         {
             _bookingService = bookingService;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             return View();
         }
         //wyswietlanie danych
+        [Authorize(Roles = "Admin")]
         public IActionResult Product()
         {
             var product = new Product
@@ -29,6 +33,7 @@ namespace BOOKING.Controllers
             return View(product);
         }
         //wyswietlanie danych lista
+        [Authorize(Roles = "Admin")]
         public IActionResult List()
         {
 
@@ -62,6 +67,7 @@ namespace BOOKING.Controllers
         }
 
         //Sposoby przekazywania danych
+        [Authorize(Roles = "Admin")]
         public IActionResult Data()
         {
             //przekazane raz w danym cyklu request

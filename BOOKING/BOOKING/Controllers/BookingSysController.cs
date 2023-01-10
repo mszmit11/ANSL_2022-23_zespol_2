@@ -40,6 +40,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public IActionResult Add()
         {
             return View();
@@ -47,6 +48,7 @@ namespace BOOKING.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFiles")] Product body)
         {
             if (ModelState.IsValid)
@@ -64,6 +66,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public IActionResult List()
         {
             var products = _bookingService.GetAll();
@@ -88,6 +91,7 @@ namespace BOOKING.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var product = _bookingService.Get(id);
@@ -124,6 +128,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public IActionResult Reservation(int id)
         {
             TempData["ProductId2"] = TempData["ProductId"];
@@ -132,6 +137,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public IActionResult Reservation(Reservation body)
         {
             //walidacja
@@ -149,6 +155,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult ReservationInfo()
         {
             var reservations = _bookingService.GetAllReservations();
@@ -183,6 +190,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public IActionResult MyProducts()
         {
 
@@ -196,6 +204,7 @@ namespace BOOKING.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public IActionResult MyReservations()
         {
 

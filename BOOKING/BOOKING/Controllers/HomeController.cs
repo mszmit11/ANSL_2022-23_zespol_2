@@ -1,4 +1,6 @@
-﻿using BOOKING.Models;
+﻿using BOOKING.Enums;
+using BOOKING.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -32,6 +34,7 @@ namespace BOOKING.Controllers
         }
 
         //nowa sciezka z widokiem, mozna przekierowac do innego controllera
+        [Authorize(Roles = "Admin")]
         [Route("testowy-route/{name}")]
         public IActionResult Produkt(string name) 
         {
