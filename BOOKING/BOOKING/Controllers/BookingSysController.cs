@@ -182,5 +182,31 @@ namespace BOOKING.Controllers
             return fileNameForStorage;
         }
 
+        [HttpGet]
+        public IActionResult MyProducts()
+        {
+
+            var products = _bookingService.GetAll();
+            var userID = _userManager.GetUserId(HttpContext.User);
+            var myProducts = products.Where(s => s.CustomerId!.Contains(userID));
+
+            ViewData["Product"] = myProducts;
+            ViewData["Reservations"] = _bookingService.GetAllReservations();
+            return View("List");
+        }
+
+        [HttpGet]
+        public IActionResult MyReservations()
+        {
+
+            var reservations = _bookingService.GetAllReservations();
+            var userID = _userManager.GetUserId(HttpContext.User);
+            var myReservations = reservations.Where(s => s.CustomerId!.Contains(userID));
+            
+            return View("ReservationInfo", myReservations);
+        }
+
+
+
     }
 }
