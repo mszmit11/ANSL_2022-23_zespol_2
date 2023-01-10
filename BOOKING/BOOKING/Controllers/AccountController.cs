@@ -1,4 +1,5 @@
 ﻿using BOOKING.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -74,6 +75,14 @@ namespace BOOKING.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> MyProfile()
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity!.Name);
+            return View(user);
         }
     }
 }

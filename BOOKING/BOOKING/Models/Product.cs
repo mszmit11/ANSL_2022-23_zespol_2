@@ -37,5 +37,8 @@ namespace BOOKING.Models
         [NotMapped]
         public virtual IFormFile[]? ImageFiles { get; set; }
         public List<ImageStorageNames>? ImageStorageNames { get; set; } = new();
+
+        [JsonIgnore]
+        public string? CustomerId { get; set; }
     }
 }

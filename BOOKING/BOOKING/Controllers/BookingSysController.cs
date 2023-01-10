@@ -55,7 +55,7 @@ namespace BOOKING.Controllers
                 {
                     await UploadFiles(body, body.ImageFiles);
                 }
-
+                body.CustomerId = _userManager.GetUserId(HttpContext.User);
                 _dbBooking.Products.Add(body);
                 await _dbBooking.SaveChangesAsync();
                 return RedirectToAction("List");
