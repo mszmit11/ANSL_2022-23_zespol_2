@@ -5,21 +5,80 @@
     var reservations = ViewData["reservations"] as List<Reservation>;
     
 }
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
-<h1>Szczegóły noclegu</h1>
-<p>Nazwa: @product.Name</p>
-<p>Opis: @product.Description</p>
-<p>Kategoria: @product.Category</p>
-<p>Lokalizacja: @product.Locality</p>
-<p>Od kiedy dostępne: @product.startDate.ToShortDateString()</p>
-<p>Do kiedy dostępne: @product.endDate.ToShortDateString()</p>
-<p>Rezerwacje:</p>
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
+
+<html>
+<head>
+
+    <div id="rain-container"></div>
+
+    <style>
+        #rain-container .rain {
+            position: absolute;
+            width: 1px;
+            height: 15px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0, 255, 255) 100%);
+            animation: fall 1s linear infinite;
+        }
+
+        p {
+            color: black;
+            font-size: 20px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #f60, #ff0);
+        }
+
+        h1 {
+            color: black;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <script>
+        for (var i = 0; i < 100; i++) {
+            var drop = document.createElement("div");
+            drop.className = "rain";
+            var x = Math.floor(Math.random() * window.innerWidth);
+            var y = Math.floor(Math.random() * -1000);
+            drop.style.left = x + "px";
+            drop.style.top = y + "px";
+            document.getElementById("rain-container").appendChild(drop);
+        }
+
+        setInterval(function () {
+            var rain = document.getElementsByClassName("rain");
+            for (var i = 0; i < rain.length; i++) {
+                if (rain[i].offsetTop > window.innerHeight) {
+                    var x = Math.floor(Math.random() * window.innerWidth);
+                    rain[i].style.left = x + "px";
+                    rain[i].style.top = "-20px";
+                }
+                rain[i].style.top = rain[i].offsetTop + 1 + "px";
+            }
+        }, 66);
+    </script>
+    <h1>Szczegóły noclegu</h1>
+    <p> Nazwa: @product.Name</p>
+    <p>Opis: @product.Description</p>
+    <p>Kategoria: @product.Category</p>
+    <p>Lokalizacja: @product.Locality</p>
+    <p>Od kiedy dostępne: @product.startDate.ToShortDateString()</p>
+    <p>Do kiedy dostępne: @product.endDate.ToShortDateString()</p>
+    <p>Rezerwacje:</p>
+</body>
+</html>
 @foreach (var reservation in reservations)
 {
-<li>
-    <p>Od: @reservation.Start.ToShortDateString()</p>
-    <p>Do: @reservation.End.ToShortDateString()</p>
-</li>
+    <li>
+        <p>Od: @reservation.Start.ToShortDateString()</p>
+        <p>Do: @reservation.End.ToShortDateString()</p>
+    </li>
 }
 <dd class="col-sm-10">
     @if (product.ImageUrls != null)
@@ -31,4 +90,4 @@
     }
 </dd>
 
-<p><button class="reservation_btn" type="submit" onclick="@("window.location.href='" + @Url.Action("Reservation", "BookingSys") + "'");">Rezerwuj</button></p>
+<p1><button class="btn" type="submit" onclick="@("window.location.href='" + @Url.Action("Reservation", "BookingSys") + "'");">Rezerwuj</button></p1>

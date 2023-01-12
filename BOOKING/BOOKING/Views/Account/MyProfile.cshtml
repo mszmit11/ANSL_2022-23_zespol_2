@@ -1,21 +1,37 @@
 ﻿@model BOOKING.Models.UserModel
 
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
 
 <h2>Profil użytkownika</h2>
-
+<html>
+    <head>
+        <style>
+              td {
+        color: black;
+        font-size: 20px;
+            border: 2px solid orange;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #f60, #ff0);
+        }
+        </style>
+    </head>
+</html>
 <table class="table">
     <tr>
-        <td>Nazwa użytkownika:</td>
-        <td>@Model.UserName</td>
+        <td>Nazwa użytkownika: @Model.UserName</td>
+        
     </tr>
     <tr>
-        <td>Adres e-mail:</td>
-        <td>@Model.Email</td>
+        <td>Adres e-mail: @Model.Email</td>
+        
     </tr>
-    <tr>
-        <td><a href="@Url.Action("MyProducts","BookingSys")">Moje produkty</a></td>
-    </tr>
-    <tr>
-        <td><a href="@Url.Action("MyReservations","BookingSys")">Moje rezerwacje</a></td>
-    </tr>
+    <trr>
+        <tdd><a class="btn" href="@Url.Action("MyProducts","BookingSys")">Moje produkty</a></tdd>
+    </trr>
+    <trr>
+        <tdd><a class="btn" href="@Url.Action("MyReservations","BookingSys")">Moje rezerwacje</a></tdd>
+    </trr>
 </table>
