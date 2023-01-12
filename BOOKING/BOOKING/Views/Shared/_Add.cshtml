@@ -42,6 +42,34 @@
     </div>
 
     <div class="form-group">
+        <p>Podaj cene: </p>
+        @Html.TextBoxFor(x => x.Price)
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <p>Podaj adres: </p>
+        @Html.TextBoxFor(x => x.FullAddress)
+        <span asp-validation-for="FullAddress" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <span class="form-label">Wybierz</span>
+        <select class="form-control" name="Firm" id="Firm">
+            <option value="Firma">Firma</option>
+            <option value="Prywatnie">Prywatnie</option>
+        </select>
+        <span class="select-arrow"></span>
+        <span asp-validation-for="Firm" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <p>Podaj numer telefonu: </p>
+        @Html.TextBoxFor(x => x.Number)
+        <span asp-validation-for="Number" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
         <p>Zdjęcia:</p>
         <input type="file" name="ImageFiles" multiple />
         <span asp-validation-for="ImageFiles" class="text-danger"></span>

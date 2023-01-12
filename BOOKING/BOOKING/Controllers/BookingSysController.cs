@@ -49,7 +49,7 @@ namespace BOOKING.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFiles")] Product body)
+        public async Task<IActionResult> Add([Bind("Id,Name,Description,Category,Locality,startDate,endDate,ImageUrl,ImageFiles, Price, FullAddress, Firm, Number")] Product body)
         {
             if (ModelState.IsValid)
             {

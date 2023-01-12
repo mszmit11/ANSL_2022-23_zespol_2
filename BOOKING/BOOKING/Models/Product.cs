@@ -40,5 +40,17 @@ namespace BOOKING.Models
 
         [JsonIgnore]
         public string? CustomerId { get; set; }
+
+        [Required(ErrorMessage = "Cena jest wymagana!")]
+        public double Price { get; set; }
+
+        [Required(ErrorMessage = "Adres jest wymagany!")]
+        public string FullAddress { get; set; }
+
+        [Required(ErrorMessage = "Wybierz czy prywatnie czy jest firma!")]
+        public string Firm { get; set; }
+
+        [Required(ErrorMessage = "Numer jest wymagany!")]
+        public string Number { get; set; }
     }
 }
