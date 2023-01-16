@@ -11064,24 +11064,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Paweł\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\knlka\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Paweł\\OneDrive\\Pulpit\\Gitpatus\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "projectUniqueName": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
       "projectName": "BOOKING",
-      "projectPath": "C:\\Users\\Paweł\\OneDrive\\Pulpit\\Gitpatus\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
-      "packagesPath": "C:\\Users\\Paweł\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Paweł\\OneDrive\\Pulpit\\Gitpatus\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\obj\\",
+      "projectPath": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "packagesPath": "C:\\Users\\knlka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Paweł\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\knlka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11165,7 +11160,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

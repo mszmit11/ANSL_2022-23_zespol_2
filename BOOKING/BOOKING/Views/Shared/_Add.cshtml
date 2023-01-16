@@ -7,89 +7,161 @@
 <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 
 
-    <form asp-controller="BookingSys" asp-action="Add" enctype="multipart/form-data">
+ <form asp-controller="BookingSys" asp-action="Add" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-    <p>Nazwa: </p>
-    @Html.TextBoxFor(x => x.Name)
-    <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
+    <div class="all">
+        <div class="first-comp">
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Nazwa</p>
+                    @Html.TextBoxFor(x => x.Name)
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p class="text-group">Kategoria</p>
+                    @Html.TextBoxFor(x => x.Category)
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Miasto</p>
+                    @Html.TextBoxFor(x => x.Locality)
+                    <span asp-validation-for="Locality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p class="text-group">Adres</p>
+                    @Html.TextBoxFor(x => x.FullAddress)
+                    <span asp-validation-for="FullAddress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Podaj cene</p>
+                    @Html.TextBoxFor(x => x.Price)
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p class="text-group">Podaj numer telefonu</p>
+                    @Html.TextBoxFor(x => x.Number)
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-    <p>Opis: </p>
-    @Html.TextBoxFor(x => x.Description)
-    <span asp-validation-for="Description" class="text-danger"></span>
+        <div class="second-comp">
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Od kiedy dostępne</p>
+                    <input asp-for="startDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="startDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p>Do kiedy dostępne</p>
+                    <input asp-for="endDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="endDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Prywatnie lub firma</p>
+                    <select class="form-control" name="Firm" id="Firm">
+                        <option value="Firma">Firma</option>
+                        <option value="Prywatnie">Prywatnie</option>
+                    </select>
+                    <span class="select-arrow"></span>
+                    <span asp-validation-for="Firm" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p><button type="submit" class="button" value="Create">Wyślij formularz</button></p>
+                </div>
+            </div>
+            <div class="component-group">
+                <div class="form-group">
+                    <p>Opis oferty</p>
+                    @Html.TextBoxFor(x => x.Description)
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p class="img">Zdjęcia</p>
+                    <input type="file" class="imgFile" name="ImageFiles" multiple />
+                    <span asp-validation-for="ImageFiles" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-    <p>Kategoria: </p>
-    @Html.TextBoxFor(x => x.Category)
-    <span asp-validation-for="Category" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-    <p>Miasto: </p>
-    @Html.TextBoxFor(x => x.Locality)
-    <span asp-validation-for="Locality" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-    <p>Od kiedy dostępne: </p>
-    <input asp-for="startDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
-    <span asp-validation-for="startDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-    <p>Do kiedy dostępne: </p>
-    <input asp-for="endDate" type="date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
-    <span asp-validation-for="endDate" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <p>Podaj cene: </p>
-        @Html.TextBoxFor(x => x.Price)
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <p>Podaj adres: </p>
-        @Html.TextBoxFor(x => x.FullAddress)
-        <span asp-validation-for="FullAddress" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <span class="form-label">Wybierz</span>
-        <select class="form-control" name="Firm" id="Firm">
-            <option value="Firma">Firma</option>
-            <option value="Prywatnie">Prywatnie</option>
-        </select>
-        <span class="select-arrow"></span>
-        <span asp-validation-for="Firm" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <p>Podaj numer telefonu: </p>
-        @Html.TextBoxFor(x => x.Number)
-        <span asp-validation-for="Number" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <p>Zdjęcia:</p>
-        <input type="file" name="ImageFiles" multiple />
-        <span asp-validation-for="ImageFiles" class="text-danger"></span>
-    </div>
-
-    <p><button type="submit" value="Create">Wyślij</button></p>
-    </form>
+    
+</form>
 
 <style>
+    .all{
+        text-align: center;
+        padding: 0.5em;
+        margin: 0.5em;
+    }
     p {
         display: block;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        margin-left: 0;
-        margin-right: 0;
-        font-family: courier;
-        font-size: 120%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif: 120%;
+        margin-left: 0.5em;
+        font-weight: bold;
+    }
+    .img{
+        margin-top: 2.5em;
+    }
+
+    .imgFile{
+        text-align: center;
+    }
+    .text-group{
+        padding-top: 0.5em;
+    }
+    .form-control{
+        margin: 0.5em;
+        padding: 0.5em;
+        width: 98%;
+        clear: both;
+    }
+    .component-group {
+        color: white;
+        background-color: rgb(30,30,30, 0.95);
+        border-radius: 1em;
+        padding: 3em;
+        margin: 1.1em;
+        box-shadow: 0px 0px 20px 0px black;
+        width: 30%;
+        float: left;
+        text-align: center;
+    }
+
+    .button {
+        background-color: rgb(235,110,87);
+        border-radius: 20px;
+        display: inline-block;
+        width: 100%;
+        margin-top: 1.2em;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 0.5em 0.5em;
+        text-decoration: none;
+    }
+    .button:hover {
+        background-color: rgb(245,110,67);
+    }
+    .button:active {
+        position: relative;
+        top: 1px;
+    }
+    .mainH2{
+        color: white;
+        background-color: rgb(30,30,30, 0.95);
+        border-radius: 0.5em;
+        padding: 0.5em;
+        margin: 1em 0.5em 0.5em 0.5em;
+        box-shadow: 0px 0px 20px 0px black;
+        width: 95%;
+        text-align: center;
     }
 </style>

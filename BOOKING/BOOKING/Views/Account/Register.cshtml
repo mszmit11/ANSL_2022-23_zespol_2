@@ -4,22 +4,54 @@
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
 <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+<html>
+<head>
+    <style>
+        .box {
+            color: white;
+            background-color: rgb(30,30,30, 0.95);
+            border-radius: 0.5em;
+            padding: 0.5em;
+            box-shadow: 0px 0px 20px 0px black;
+            width: 35%;
+            text-align: center;
+        }
+        .titleRegister {
+            color: white;
+            background-color: rgb(30,30,30, 0.95);
+            border-radius: 0.5em;
+            padding: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 0px 20px 0px black;
+            width: 35%;
+            text-align: center;
+        }
+        .input-container{
+            padding: 0.5em;
+        }
+        .box {
+            padding: 2em;
+        }
+    </style>
+</head>
+</html>
+<h2 class="titleRegister">Rejestracja</h2>
 <div class="box">
 	<form method="post" asp-controller="Account" asp-action="Register">
-		<h2>@Html.ValidationSummary()</h2>;
-		<span class="text-center">rejestracja</span>
+		<h2>@Html.ValidationSummary()</h2>
 		<div class="input-container">
 			@Html.TextBoxFor(x => x.userName)
-			<label>Login</label>
+            <label>Login</label>
 		</div>
-		<div class="input-container">
+		<div class="input-container">            
 			@Html.TextBoxFor(x => x.Email)
-			<label>E-mail</label>
+            <label>E-mail</label>
 		</div>
-		<div class="input-container">
+		<div class="input-container">           
 			@Html.PasswordFor(x => x.Password)
-			<label>Hasło</label>
+            <label>Hasło</label>
 		</div>
-		<button type="submit" class="btn">Rejestruj</button>
+		<button type="submit" class="btn">Zarejestruj</button>
 	</form>
 </div>
