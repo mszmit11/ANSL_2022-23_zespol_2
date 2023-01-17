@@ -94,6 +94,9 @@
 </form>
 
 <style>
+    #Name, #Category, #Locality, #FullAddress, #Price, #Number, #Description{
+        width: 100%;
+    }
     .all{
         text-align: center;
         padding: 0.5em;
@@ -103,7 +106,6 @@
         display: block;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif: 120%;
         margin-left: 0.5em;
-        font-weight: bold;
     }
     .img{
         margin-top: 2.5em;
@@ -123,8 +125,7 @@
     }
     .component-group {
         color: white;
-        background-color: rgb(30,30,30, 0.95);
-        border-radius: 1em;
+        background-color: rgb(30,30,30, 1);
         padding: 3em;
         margin: 1.1em;
         box-shadow: 0px 0px 20px 0px black;
@@ -132,10 +133,8 @@
         float: left;
         text-align: center;
     }
-
     .button {
-        background-color: rgb(235,110,87);
-        border-radius: 20px;
+        background-color: rgb(231,76,60);
         display: inline-block;
         width: 100%;
         margin-top: 1.2em;
@@ -143,25 +142,24 @@
         color: #ffffff;
         font-family: Arial;
         font-size: 20px;
-        font-weight: bold;
         padding: 0.5em 0.5em;
         text-decoration: none;
     }
     .button:hover {
-        background-color: rgb(245,110,67);
+            color: rgb(30,30,30, 1);
     }
     .button:active {
         position: relative;
         top: 1px;
     }
     .mainH2{
-        color: white;
-        background-color: rgb(30,30,30, 0.95);
-        border-radius: 0.5em;
-        padding: 0.5em;
-        margin: 1em 0.5em 0.5em 0.5em;
-        box-shadow: 0px 0px 20px 0px black;
-        width: 95%;
-        text-align: center;
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            padding: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 0px 20px 0px black;
+            width: 60%;
+            text-align: center;
     }
 </style>

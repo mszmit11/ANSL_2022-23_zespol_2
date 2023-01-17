@@ -7,29 +7,86 @@
 
 <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 
+<h2>Formularz rezerwacji</h2>
+<html>
+<head>
+    <style>
+        h2 {
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            padding: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 0px 20px 0px black;
+            width: 60%;
+            text-align: center;
+        }
 
+        .button {
+            background-color: rgb(231,76,60);
+            display: inline-block;
+            width: 100%;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 20px;
+            padding: 0.5em 0.5em;
+            text-decoration: none;
+            margin-top: 2em;
+            
+        }
+        .button:hover {
+            color: rgb(30,30,30, 1);
+        }
+        .comp{
+        color: white;
+        background-color: rgb(30,30,30, 1);
+        padding: 3em;
+        margin: 1em;
+        box-shadow: 0px 0px 20px 0px black;
+        width: 30%;
+        float: left;
+        text-align: center;
+        }
+        p{
+            margin: 1em;
+        }
+        #Name{
+            width: 95%;
+        }
+        #secondName{
+            width: 95%;
+        }
+    </style>
+</head>
+</html>
 
 @using (Html.BeginForm("Reservation", "BookingSys", FormMethod.Post))
 {
     @Html.ValidationSummary()
+    <div class="comp">
+        <p>Imie: </p>
+        @Html.TextBoxFor(x => x.Name)
+        <p>Zameldowanie: </p>
+        <p>
+            <input asp-for="Start" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+        </p>
+    </div>
 
-    <p>Imie: </p>
-    @Html.TextBoxFor(x => x.Name)
+    <div class="comp">
+        <p>Nazwisko: </p>
+        @Html.TextBoxFor(x => x.secondName)
+        <p>Wymeldowanie: </p>
+        <p>
+            <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+        </p>
+    </div>
 
-    <p>Nazwisko: </p>
-    @Html.TextBoxFor(x => x.secondName)
+    <div class="comp">
+        <p>ProductID: @TempData["ProductId"]</p>
+        <p><button type="submit" class="button">Zarezerwuj</button></p>
+    </div>
 
-    <p>Zameldowanie: </p>
-    <p>
-        <input asp-for="Start" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
-    </p>
 
-    <p>Wymeldowanie: </p>
-    <p>
-        <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
-    </p>
-    <p>ProductID: </p>
-    <p>@TempData["ProductId"]</p>
-
-    <p><button type="submit">Zarezerwuj</button></p>
+  
 }

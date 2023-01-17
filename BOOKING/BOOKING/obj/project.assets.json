@@ -11069,11 +11069,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "projectUniqueName": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
       "projectName": "BOOKING",
-      "projectPath": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
+      "projectPath": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\BOOKING.csproj",
       "packagesPath": "C:\\Users\\knlka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\knlka\\Desktop\\repo\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\obj\\",
+      "outputPath": "C:\\Users\\knlka\\Source\\Repos\\ANSL_2022-23_zespol_2\\BOOKING\\BOOKING\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\knlka\\AppData\\Roaming\\NuGet\\NuGet.Config",

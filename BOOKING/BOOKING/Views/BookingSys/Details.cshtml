@@ -16,25 +16,46 @@
     <div id="rain-container"></div>
 
     <style>
-        #rain-container .rain {
-            position: absolute;
-            width: 1px;
-            height: 15px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0, 255, 255) 100%);
-            animation: fall 1s linear infinite;
-        }
 
-        p {
-            color: black;
-            font-size: 20px;
-            border: 2px solid red;
-            border-radius: 10px;
-            background-image: linear-gradient(to right, #f60, #ff0);
+
+        p{
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            box-shadow: 0px 0px 20px 0px black;
+            padding: 0.5em;
+        }
+        .col-sm-10{
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            box-shadow: 0px 0px 20px 0px black;
+            padding: 1.5em;
+            width: 350px;
+            text-align: center;
         }
 
         h1 {
             color: black;
             font-size: 20px;
+        }
+
+        .mainH2 {
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            padding: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 0.5em;
+            box-shadow: 0px 0px 20px 0px black;
+            width: 60%;
+            text-align: center;
+        }
+                .imageSector{
+            color: white;
+            background-color: rgb(30,30,30, 1);
+            box-shadow: 0px 0px 20px 0px black;
+            padding: 1em;
+            width: 30%;
+            text-align: center; 
         }
     </style>
 
@@ -63,29 +84,28 @@
             }
         }, 66);
     </script>
-    <h1>Szczegóły noclegu</h1>
+    <h2 class="mainH2">Szczegóły noclegu</h2>
     <p> Nazwa: @product.Name</p>
     <p>Opis: @product.Description</p>
     <p>Kategoria: @product.Category</p>
     <p>Lokalizacja: @product.Locality</p>
     <p>Od kiedy dostępne: @product.startDate.ToShortDateString()</p>
     <p>Do kiedy dostępne: @product.endDate.ToShortDateString()</p>
-    <p>Rezerwacje:</p>
+
 </body>
 </html>
 @foreach (var reservation in reservations)
 {
-    <li>
-        <p>Od: @reservation.Start.ToShortDateString()</p>
-        <p>Do: @reservation.End.ToShortDateString()</p>
-    </li>
+        <p>Rezerwacja: od @reservation.Start.ToShortDateString() do @reservation.End.ToShortDateString()</p>
 }
+
 <dd class="col-sm-10">
+    Zdjęcia:
     @if (product.ImageUrls != null)
     {
         foreach (var imgUrl in product.ImageUrls)
         {
-            <img src="@Url.Content(imgUrl.Url)" alt="Product Image" style="width: 150px; height: 220px;" />
+            <img src="@Url.Content(imgUrl.Url)" alt="Product Image" style="width: 300px; height: 300px;" />
         }
     }
 </dd>
