@@ -108,10 +108,7 @@
                }
                     @if (product.ImageUrls != null)
                     {
-                        foreach (var imgUrl in product.ImageUrls)
-                        {
-                            <img src="@Url.Content(imgUrl.Url)" alt="Product Image" style="width: 300px; height: 300px;" />
-                        }
+                        <img src="@Url.Content(product.ImageUrls.First().Url)" alt="Product Image" style="width: 300px; height: 300px;" />
                     }
                     
                     @using (Html.BeginForm("Delete", "BookingSys", FormMethod.Post))
