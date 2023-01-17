@@ -84,10 +84,14 @@
             margin-bottom: 0.5em;
         }
 
+        .image {
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 </html>
-<ol>
+
     @if(products == null)
     {
         <h3>Brak dostępnych pokoi</h3>
@@ -99,26 +103,28 @@
         var isReserved = reservations.Any(r => r.ProductId == product.Id && r.Start == product.startDate && r.End == product.endDate);
         if (!displayedProductIds.Contains(product.Id))
         {
-            displayedProductIds.Add(product.Id);
-            <li class="list">
-                <b>@product.Name</b> - @product.Category
-                @if (isReserved)
-                {
-                    <p>ZAREZERWOWANY</p>
-               }
+            
+                    @if (isReserved)
+                    {
+                        continue;
+                    }
+                <li class="list">
+                    <b>@product.Name</b> - @product.Category - osobowy
                     @if (product.ImageUrls != null)
                     {
-                        <img src="@Url.Content(product.ImageUrls.First().Url)" alt="Product Image" style="width: 300px; height: 300px;" />
+                        <img class="image" src="@Url.Content(product.ImageUrls.First().Url)" alt="Product Image" style="width: 300px; height: 300px;" />
                     }
-                    
-                    @using (Html.BeginForm("Delete", "BookingSys", FormMethod.Post))
-                    {    
-                        <input type="hidden" name="Id" value="@product.Id" />
-                        <button class="btn" type="submit">Usuń</button>   
+                    @if (User.IsInRole("Admin") == true)
+                    {
+                        @using (Html.BeginForm("Delete", "BookingSys", FormMethod.Post))
+                        {
+                            <input type="hidden" name="Id" value="@product.Id" />
+                            <button class="btn" type="submit">Usuń</button>
+                        }
                     }
                     <a href="@Url.Action("Details","BookingSys", new { Id = product.Id})" class="details">Szczegóły</a>
-            </li>
+                </li>
         }
     }
     }
-</ol>
+

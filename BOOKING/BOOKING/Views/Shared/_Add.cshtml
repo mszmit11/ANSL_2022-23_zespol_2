@@ -18,8 +18,14 @@
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <p class="text-group">Kategoria</p>
-                    @Html.TextBoxFor(x => x.Category)
+                    <p>Ilość osób</p>
+                    <select class="form-control" name="Catergory" id="Catergory">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <span class="select-arrow"></span>
                     <span asp-validation-for="Category" class="text-danger"></span>
                 </div>
             </div>
