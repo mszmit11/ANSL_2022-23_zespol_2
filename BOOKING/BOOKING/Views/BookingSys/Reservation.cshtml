@@ -83,7 +83,10 @@
     </div>
 
     <div class="comp">
-        <p>ProductID: @TempData["ProductId"]</p>
+        @if (User.IsInRole("Admin") == true)
+        {
+            <p>ProductID: @TempData["ProductId"]</p>
+        }
         <p><button type="submit" class="button">Zarezerwuj</button></p>
     </div>
 

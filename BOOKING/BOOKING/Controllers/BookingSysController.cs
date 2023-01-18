@@ -151,7 +151,7 @@ namespace BOOKING.Controllers
             body.CustomerId = _userManager.GetUserId(HttpContext.User);
             var id = _bookingService.SaveReservation(body);
 
-            return RedirectToAction("ReservationInfo");
+            return RedirectToAction("MyReservations");
         }
 
         [HttpGet]

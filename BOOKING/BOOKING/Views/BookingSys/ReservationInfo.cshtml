@@ -32,8 +32,9 @@
     @foreach (var reservation in Model)
     {
         <li class="li">
-            <b>@reservation.Name</b> @reservation.secondName | @reservation.Start - @reservation.End | @reservation.ProductId - @reservation.CustomerId
-            
+            <b>@reservation.Name</b> @reservation.secondName | @reservation.Start - @reservation.End |  @if (User.IsInRole("Admin") == true)
+            {@reservation.ProductId  <b>@reservation.CustomerId</b>}
+
         </li>
     }
 </ol>
