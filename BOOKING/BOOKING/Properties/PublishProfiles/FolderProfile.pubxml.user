@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>F:\cos\projektzesp\nooking\BOOKING\BOOKING\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2023-01-18T13:14:53.3178945Z;True|2023-01-18T01:45:48.3225355+01:00;True|2022-11-26T13:18:36.8135836+01:00;True|2022-11-26T13:09:35.9563470+01:00;</History>
+    <_PublishTargetUrl>F:\cos\projektzesp\gdgdfgdfg\BOOKING\BOOKING\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-01-18T16:57:13.5906708Z;True|2023-01-18T17:45:43.7769056+01:00;True|2023-01-18T14:14:53.3178945+01:00;True|2023-01-18T01:45:48.3225355+01:00;True|2022-11-26T13:18:36.8135836+01:00;True|2022-11-26T13:09:35.9563470+01:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
