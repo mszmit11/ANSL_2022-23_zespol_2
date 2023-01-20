@@ -81,11 +81,26 @@ namespace BOOKING.Controllers
         {
             var product = _bookingService.Get(id);
             TempData["ProductId"] = id;
-            string date = product.endDate.ToString("yyyy-MM-dd");
-            TempData["ProductDate"] = date;
+            string dateEnd = product.endDate.ToString("yyyy-MM-dd");
+            string dateStart = product.startDate.ToString("yyyy-MM-dd");
+            TempData["ProductDateEnd"] = dateEnd;
+            TempData["ProductDateStart"] = dateStart;
             var reservations = _bookingService.GetReservationId(id);
             ViewData["Product"] = product;
             ViewData["Reservations"] = reservations;
+            /*
+            List<DateTime> productDateRange = Enumerable.Range(0, (product.endDate - product.startDate).Days + 1)
+                .Select(i => product.startDate.AddDays(i))
+                .ToList();
+            List<DateTime> reservationDateRange = new List<DateTime>();
+            foreach (var reservation in reservations)
+            {
+                reservationDateRange.AddRange(Enumerable.Range(0, (reservation.End - reservation.Start).Days + 1)
+                .Select(i => reservation.Start.AddDays(i)));
+            }
+            List<DateTime> availableDates = productDateRange.Except(reservationDateRange).ToList();
+            TempData["availableDates"] = availableDates;*/
+
             return View();
         }
 
@@ -213,6 +228,21 @@ namespace BOOKING.Controllers
             var myReservations = reservations.Where(s => s.CustomerId!.Contains(userID));
             
             return View("ReservationInfo", myReservations);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "User")]
+        public IActionResult DeleteReservation(int id)
+        {
+            var product = _bookingService.GetReservation(id);
+
+            _bookingService.DeleteReservation(id);
+            if (User.IsInRole("Admin") == true)
+            {
+                return RedirectToAction("ReservationInfo");
+            }
+            return RedirectToAction("MyReservations");
         }
 
 

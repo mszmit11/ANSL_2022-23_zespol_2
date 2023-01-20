@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Reservation";
+
 }
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
@@ -69,7 +70,15 @@
         @Html.TextBoxFor(x => x.Name)
         <p>Zameldowanie: </p>
         <p>
-            <input asp-for="Start" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+            @if (DateTime.Now < (DateTime)TempData["ProductDateStart"])
+            {
+                <input asp-for="Start" type="date" class="form-control" value="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" min="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+            }
+            else
+            {
+                <input asp-for="Start" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+            }
+
         </p>
     </div>
 
@@ -78,7 +87,14 @@
         @Html.TextBoxFor(x => x.secondName)
         <p>Wymeldowanie: </p>
         <p>
-            <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDate"]).ToString("yyyy-MM-dd"))" />
+            @if (DateTime.Now < (DateTime)TempData["ProductDateStart"])
+            {
+                <input asp-for="End" type="date" class="form-control" value="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" min="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+            }
+            else
+            {
+                <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+            }
         </p>
     </div>
 

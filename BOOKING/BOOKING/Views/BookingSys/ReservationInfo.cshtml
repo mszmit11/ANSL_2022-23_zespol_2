@@ -34,7 +34,11 @@
         <li class="li">
             <b>@reservation.Name</b> @reservation.secondName | @reservation.Start - @reservation.End |  @if (User.IsInRole("Admin") == true)
             {@reservation.ProductId  <b>@reservation.CustomerId</b>}
-
+                @using (Html.BeginForm("DeleteReservation", "BookingSys", FormMethod.Post))
+                {
+                    <input type="hidden" name="Id" value="@reservation.Id" />
+                    <button class="btn" type="submit">Usuń</button>
+                }
         </li>
     }
 </ol>
