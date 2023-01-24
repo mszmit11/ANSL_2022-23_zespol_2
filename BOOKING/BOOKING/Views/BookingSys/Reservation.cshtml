@@ -64,15 +64,17 @@
 
 @using (Html.BeginForm("Reservation", "BookingSys", FormMethod.Post))
 {
-    @Html.ValidationSummary()
+    <!--<h2>@Html.ValidationSummary()</h2>-->
     <div class="comp">
         <p>Imie: </p>
         @Html.TextBoxFor(x => x.Name)
+        <span asp-validation-for="Name" class="text-danger"></span>
         <p>Zameldowanie: </p>
         <p>
             @if (DateTime.Now < (DateTime)TempData["ProductDateStart"])
             {
                 <input asp-for="Start" type="date" class="form-control" value="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" min="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+                <span asp-validation-for="Start" class="text-danger"></span>
             }
             else
             {
@@ -85,15 +87,18 @@
     <div class="comp">
         <p>Nazwisko: </p>
         @Html.TextBoxFor(x => x.secondName)
+        <span asp-validation-for="secondName" class="text-danger"></span>
         <p>Wymeldowanie: </p>
         <p>
             @if (DateTime.Now < (DateTime)TempData["ProductDateStart"])
             {
                 <input asp-for="End" type="date" class="form-control" value="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" min="@(((DateTime)TempData["ProductDateStart"]).ToString("yyyy-MM-dd"))" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+                <span asp-validation-for="End" class="text-danger"></span>
             }
             else
             {
                 <input asp-for="End" type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" min="@DateTime.Now.ToString("yyyy-MM-dd")" max="@(((DateTime)TempData["ProductDateEnd"]).ToString("yyyy-MM-dd"))" />
+                <span asp-validation-for="End" class="text-danger"></span>
             }
         </p>
     </div>

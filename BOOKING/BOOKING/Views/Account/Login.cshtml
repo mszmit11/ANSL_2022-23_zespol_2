@@ -39,15 +39,17 @@
 <h2 class="titleLogin">Logowanie</h2>
 <div class="box">
 	<form method="post" asp-controller="Account" asp-action="Login" >
-		<h2>@Html.ValidationSummary()</h2>
+        <!--<h2>@Html.ValidationSummary()</h2>-->
         <!--<span class="text-center">logowanie</span>-->
 	<div class="input-container">
 			@Html.TextBoxFor(x => x.userName)
             <label><p class="userName">Login</p></label>
+            <span asp-validation-for="userName" class="text-danger"></span>
         </div>
 		<div class="input-container">
 			@Html.PasswordFor(x => x.Password)
             <label><p class="Password">Hasło</p></label>
+            <span asp-validation-for="Password" class="text-danger"></span>
 	</div>
 		<button type="submit" class="btn">Zaloguj</button>
 </form>	

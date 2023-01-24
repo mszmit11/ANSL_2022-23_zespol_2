@@ -38,18 +38,21 @@
 <h2 class="titleRegister">Rejestracja</h2>
 <div class="box">
 	<form method="post" asp-controller="Account" asp-action="Register">
-		<h2>@Html.ValidationSummary()</h2>
+        <!--<h2>@Html.ValidationSummary()</h2>-->
 		<div class="input-container">
 			@Html.TextBoxFor(x => x.userName)
             <label><p class="userName">Login</p></label>
+            <span asp-validation-for="userName" class="text-danger"></span>
 		</div>
 		<div class="input-container">            
 			@Html.TextBoxFor(x => x.Email)
             <label><p class="Email">E-mail</p></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
 		</div>
 		<div class="input-container">           
 			@Html.PasswordFor(x => x.Password)
             <label><p class="Password">Hasło</p></label>
+            <span asp-validation-for="Password" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn">Zarejestruj</button>
 	</form>
